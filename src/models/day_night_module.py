@@ -219,4 +219,4 @@ class DayNightLitModule(LightningModule):
 
 
 if __name__ == "__main__":
-    _ = MNISTLitModule(None, None, None, None)
+    _ = DayNightLitModule(None, None, None, None, None)
