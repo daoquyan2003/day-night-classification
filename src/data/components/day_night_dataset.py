@@ -30,7 +30,14 @@ class DayNightDataset(torch.utils.data.Dataset):
         image = read_image(img_path)
         label = self.data.iloc[idx, 1]
         image = self.transform(image)
-        label = torch.tensor(label)
+        label = torch.tensor(label, dtype=torch.float32).unsqueeze(0)
 
         return image, label
     
+if __name__ == "__main__":
+    dataset = DayNightDataset("./data")
+    image, label = dataset[0]
+    print(image.shape)
+    print(label.shape)
+    print(image)
+    print(label)
