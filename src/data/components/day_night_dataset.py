@@ -15,7 +15,7 @@ class DayNightDataset(torch.utils.data.Dataset):
             self.transform = transform
         else:
             self.transform = v2.Compose([
-                v2.Resize([512, 512]),
+                v2.Resize([128, 128]),
                 v2.RandomHorizontalFlip(p=0.3),
                 v2.RandomVerticalFlip(p=0.3),
                 v2.ToDtype(torch.float32, scale=True),

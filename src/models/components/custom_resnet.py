@@ -7,6 +7,12 @@ class CustomResNet18(nn.Module):
         super(CustomResNet18, self).__init__()
         self.resnet18 = resnet18(weights='DEFAULT')
 
+        for param in self.resnet18.parameters():
+            param.requires_grad = False
+
+        for param in self.resnet18.fc.parameters():
+            param.requires_grad = True
+
         self.resnet18.fc = nn.Linear(self.resnet18.fc.in_features, output_size)
 
     def forward(self, x):
